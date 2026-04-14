@@ -1,34 +1,102 @@
-const startBtn = document.getElementById("startBtn");
-const visits = document.getElementById("visits");
-const clicks = document.getElementById("clicks");
-const users = document.getElementById("users");
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("loginForm");
+  const loginMessage = document.getElementById("loginMessage");
 
-let visitCount = 1240;
-let clickCount = 3890;
-let userCount = 312;
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-function animateValue(element, start, end, duration) {
-  let startTimestamp = null;
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-  function step(timestamp) {
-    if (!startTimestamp) startTimestamp = timestamp;
-    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    element.textContent = Math.floor(progress * (end - start) + start);
-
-    if (progress < 1) {
-      window.requestAnimationFrame(step);
-    }
+      if (username === "admin" && password === "12345") {
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("username", username);
+        window.location.href = "dashboard.html";
+      } else {
+        loginMessage.textContent = "Неверный логин или пароль";
+        loginMessage.style.color = "red";
+      }
+    });
   }
 
-  window.requestAnimationFrame(step);
+  const isDashboard = window.location.pathname.includes("dashboard.html");
+  if (isDashboard) {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (isLoggedIn !== "true") {
+      window.location.href = "login.html";
+      return;
+    }
+
+    const currentDate = document.getElementById("currentDate");
+    if (currentDate) {
+      const now = new Date();
+      currentDate.textContent = now.toLocaleDateString("ru-RU", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    }
+
+    createCharts();
+  }
+});
+
+function logout() {
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("username");
+  window.location.href = "login.html";
 }
 
-window.addEventListener("load", () => {
-  animateValue(visits, 0, visitCount, 1500);
-  animateValue(clicks, 0, clickCount, 1800);
-  animateValue(users, 0, userCount, 1200);
-});
+function createCharts() {
+  const visitsChartCanvas = document.getElementById("visitsChart");
+  const sectionsChartCanvas = document.getElementById("sectionsChart");
 
-startBtn.addEventListener("click", () => {
-  alert("Добро пожаловать в систему анализа пользовательской активности!");
-});
+  if (visitsChartCanvas) {
+    new Chart(visitsChartCanvas, {
+      type: "line",
+      data: {
+        labels: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+        datasets: [
+          {
+            label: "Посещаемость",
+            data: [120, 190, 170, 220, 260, 210, 240],
+            tension: 0.4,
+            fill: true,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true,
+          },
+        },
+      },
+    });
+  }
+
+  if (sectionsChartCanvas) {
+    new Chart(sectionsChartCanvas, {
+      type: "doughnut",
+      data: {
+        labels: ["Новости", "Статьи", "Видео", "Главная"],
+        datasets: [
+          {
+            data: [30, 25, 20, 25],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    });
+  }
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Панель аналитики | Media Analytics System</title>
+  <link rel="stylesheet" href="diplim.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <div>
+        <h2>MAS</h2>
+        <p class="sidebar-subtitle">Media Analytics System</p>
+      </div>
+
+      <nav>
+        <a href="dashboard.html" class="active">Главная панель</a>
+        <a href="#metrics">Метрики</a>
+        <a href="#charts">Графики</a>
+        <a href="#reports">Отчёты</a>
+      </nav>
+
+      <button class="logout-btn" onclick="logout()">Выйти</button>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>Панель аналитики</h1>
+          <p>Анализ пользовательской активности на медиаплатформе</p>
+        </div>
+
+        <div class="user-info">
+          <span id="currentDate"></span>
+        </div>
+      </header>
+
+      <section class="cards" id="metrics">
+        <div class="card">
+          <h3>Пользователи</h3>
+          <p class="value">1 284</p>
+          <span>За последние 7 дней</span>
+        </div>
+
+        <div class="card">
+          <h3>Просмотры страниц</h3>
+          <p class="value">8 956</p>
+          <span>Общее количество просмотров</span>
+        </div>
+
+        <div class="card">
+          <h3>Среднее время</h3>
+          <p class="value">4 мин 12 сек</p>
+          <span>Среднее время на платформе</span>
+        </div>
+
+        <div class="card">
+          <h3>Вовлечённость</h3>
+          <p class="value">78%</p>
+          <span>Средний уровень активности</span>
+        </div>
+      </section>
+
+      <section class="charts-section" id="charts">
+        <div class="chart-card">
+          <h3>Динамика посещаемости</h3>
+          <canvas id="visitsChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h3>Активность по разделам</h3>
+          <canvas id="sectionsChart"></canvas>
+        </div>
+      </section>
+
+      <section class="table-section" id="reports">
+        <div class="table-card">
+          <h3>Популярные страницы</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Страница</th>
+                <th>Просмотры</th>
+                <th>Среднее время</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Главная</td>
+                <td>2 145</td>
+                <td>3 мин 40 сек</td>
+              </tr>
+              <tr>
+                <td>Новости</td>
+                <td>1 982</td>
+                <td>4 мин 05 сек</td>
+              </tr>
+              <tr>
+                <td>Статьи</td>
+                <td>1 654</td>
+                <td>5 мин 12 сек</td>
+              </tr>
+              <tr>
+                <td>Видео</td>
+                <td>1 230</td>
+                <td>6 мин 02 сек</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-card">
+          <h3>Отчёт по активности пользователей</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Показатель</th>
+                <th>Значение</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Уникальные посетители</td>
+                <td>1 284</td>
+              </tr>
+              <tr>
+                <td>Повторные посещения</td>
+                <td>642</td>
+              </tr>
+              <tr>
+                <td>Глубина просмотра</td>
+                <td>4.8 страницы</td>
+              </tr>
+              <tr>
+                <td>Показатель отказов</td>
+                <td>22%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="diplim.js"></script>
+</body>
+</html>
