@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Метрики | Media Analytics System</title>
+  <link rel="stylesheet" href="diplim.css" />
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">Media Analytics</div>
+
+      <nav class="sidebar-menu">
+        <a href="index.html" class="menu-item">Главная панель</a>
+        <a href="metrics.html" class="menu-item active">Метрики</a>
+        <a href="charts.html" class="menu-item">Графики</a>
+        <a href="reports.html" class="menu-item">Отчёты</a>
+         <a href="about.html" class="menu-item active">О системе</a>
+         <a href="settings.html" class="menu-item active">Настройки</a>
+      </nav>
+
+      <button class="logout-btn" onclick="logout()">Выйти</button>
+    </aside>
+
+    <main class="main-content">
+      <header class="page-header">
+        <div>
+          <h1>Основные метрики</h1>
+          <p>Анализ пользовательской активности на медиаплатформе</p>
+        </div>
+
+        <div class="period-filter">
+          <button class="filter-btn active" onclick="setMetricsPeriod('day', this)">День</button>
+          <button class="filter-btn" onclick="setMetricsPeriod('week', this)">Неделя</button>
+          <button class="filter-btn" onclick="setMetricsPeriod('month', this)">Месяц</button>
+        </div>
+      </header>
+
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <h3>Посещения</h3>
+          <div class="metric-value" id="visitsValue">2 450</div>
+          <div class="metric-desc">Общее количество посещений платформы</div>
+        </div>
+
+        <div class="metric-card">
+          <h3>Уникальные пользователи</h3>
+          <div class="metric-value" id="usersValue">1 284</div>
+          <div class="metric-desc">Количество уникальных посетителей</div>
+        </div>
+
+        <div class="metric-card">
+          <h3>Среднее время</h3>
+          <div class="metric-value" id="timeValue">4 мин 35 сек</div>
+          <div class="metric-desc">Средняя продолжительность сеанса</div>
+        </div>
+
+        <div class="metric-card">
+          <h3>Показатель отказов</h3>
+          <div class="metric-value" id="bounceValue">22%</div>
+          <div class="metric-desc">Доля пользователей, покинувших сайт быстро</div>
+        </div>
+      </section>
+
+      <section class="content-row">
+        <div class="table-card wide-card">
+          <div class="card-title">Метрики по разделам платформы</div>
+          <table class="analytics-table">
+            <thead>
+              <tr>
+                <th>Раздел</th>
+                <th>Просмотры</th>
+                <th>Уникальные пользователи</th>
+                <th>Среднее время</th>
+                <th>Конверсия</th>
+              </tr>
+            </thead>
+            <tbody id="metricsTableBody">
+              <tr>
+                <td>Главная</td>
+                <td>2145</td>
+                <td>986</td>
+                <td>3 мин 40 сек</td>
+                <td>18%</td>
+              </tr>
+              <tr>
+                <td>Новости</td>
+                <td>1982</td>
+                <td>914</td>
+                <td>4 мин 05 сек</td>
+                <td>24%</td>
+              </tr>
+              <tr>
+                <td>Статьи</td>
+                <td>1654</td>
+                <td>801</td>
+                <td>5 мин 12 сек</td>
+                <td>29%</td>
+              </tr>
+              <tr>
+                <td>Видео</td>
+                <td>1230</td>
+                <td>642</td>
+                <td>6 мин 02 сек</td>
+                <td>31%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-row">
+        <div class="table-card">
+          <div class="card-title">Ключевые показатели эффективности</div>
+          <ul class="metrics-list">
+            <li><span>Глубина просмотра:</span> <strong>4.8 страницы</strong></li>
+            <li><span>Повторные посещения:</span> <strong>642</strong></li>
+            <li><span>CTR внутренних переходов:</span> <strong>17%</strong></li>
+            <li><span>Доля мобильных пользователей:</span> <strong>58%</strong></li>
+            <li><span>Завершённые сессии:</span> <strong>91%</strong></li>
+          </ul>
+        </div>
+
+        <div class="table-card">
+          <div class="card-title">Краткий вывод</div>
+          <p class="summary-text">
+            Наибольшую активность пользователи проявляют в разделах «Главная» и «Новости». 
+            Наибольшее среднее время взаимодействия наблюдается в разделе «Видео», что указывает 
+            на высокий интерес к мультимедийному контенту. Раздел «Статьи» демонстрирует 
+            хорошую конверсию и может рассматриваться как один из наиболее эффективных 
+            элементов медиаплатформы.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="diplim.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Настройки | Media Analytics System</title>
+    <link rel="stylesheet" href="diplim.css" />
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div>
+                <h2>MAS</h2>
+                <p class="sidebar-subtitle">Media Analytics System</p>
+            </div>
+
+            <nav>
+              <a href="index.html" class="menu-item">Главная панель</a>
+                <a href="metrics.html" class="menu-item">Метрики</a>
+                <a href="charts.html" class="menu-item">Графики</a>
+                <a href="reports.html" class="menu-item">Отчёты</a>
+                <a href="about.html" class="menu-item">О системе</a>
+                <a href="settings.html" class="menu-item active">Настройки</a>
+            </nav>
+
+            <button class="logout-btn" onclick="logout()">Выйти</button>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <h1>Настройки системы</h1>
+                    <p>Параметры отображения и работы аналитической платформы</p>
+                </div>
+
+                <div class="user-info">
+                    <span id="currentDate"></span>
+                </div>
+            </header>
+
+            <section class="settings-grid">
+                <div class="settings-card">
+                    <h3>Язык интерфейса</h3>
+                    <select class="settings-input">
+                        <option>Русский</option>
+                        <option>English</option>
+                        <option>Кыргызча</option>
+                    </select>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Формат даты</h3>
+                    <select class="settings-input">
+                        <option>ДД.ММ.ГГГГ</option>
+                        <option>ММ/ДД/ГГГГ</option>
+                        <option>ГГГГ-ММ-ДД</option>
+                    </select>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Период по умолчанию</h3>
+                    <select class="settings-input">
+                        <option>За день</option>
+                        <option>За неделю</option>
+                        <option>За месяц</option>
+                    </select>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Уведомления</h3>
+                    <label class="switch-row">
+                        <input type="checkbox" checked />
+                        <span>Включить уведомления системы</span>
+                    </label>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Автообновление данных</h3>
+                    <label class="switch-row">
+                        <input type="checkbox" checked />
+                        <span>Обновлять данные автоматически</span>
+                    </label>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Тема оформления</h3>
+                    <select class="settings-input">
+                        <option>Светлая</option>
+                        <option>Тёмная</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="settings-wide">
+                <h3>Информация о пользователе</h3>
+                <div class="profile-box">
+                    <p><strong>Имя пользователя:</strong> Администратор</p>
+                    <p><strong>Роль:</strong> Аналитик системы</p>
+                    <p><strong>Электронная почта:</strong> admin@media-system.kg</p>
+                </div>
+            </section>
+
+            <section class="settings-wide">
+                <h3>Управление системой</h3>
+                <div class="settings-buttons">
+                    <button class="settings-btn" onclick="saveSettings()">Сохранить настройки</button>
+                    <button class="settings-btn secondary-btn" onclick="resetSettings()">Сбросить</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="diplim.js"></script>
+</body>
+</html>

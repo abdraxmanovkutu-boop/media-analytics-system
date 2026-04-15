@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Вход | Media Analytics System</title>
-  <link rel="stylesheet" href="diplim.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вход | Media Analytics System</title>
+    <link rel="stylesheet" href="diplim.css" />
 </head>
-<body class="login-body">
-  <div class="login-container">
-    <div class="login-card">
-      <h1>Media Analytics System</h1>
-      <p class="subtitle">
-        Информационная система анализа пользовательской активности на медиаплатформе
-      </p>
+<body>
+    <div class="login-page">
+        <div class="login-box">
+            <h1>Media Analytics System</h1>
+            <p class="login-subtitle">Вход в информационную систему</p>
 
-      <form id="loginForm" class="login-form">
-        <label for="username">Логин</label>
-        <input type="text" id="username" placeholder="Введите логин" required />
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Логин</label>
+                    <input type="text" id="username" placeholder="Введите логин" required />
+                </div>
 
-        <label for="password">Пароль</label>
-        <input type="password" id="password" placeholder="Введите пароль" required />
+                <div class="input-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" placeholder="Введите пароль" required />
+                </div>
 
-        <button type="submit">Войти</button>
-        <p id="loginMessage" class="message"></p>
-      </form>
+                <p id="loginError" class="error-message"></p>
 
-      <div class="demo-data">
-        <p><strong>Демо-доступ:</strong></p>
-        <p>Логин: <code>admin</code></p>
-        <p>Пароль: <code>12345</code></p>
-      </div>
+                <button type="submit" class="login-btn">Войти</button>
+            </form>
+
+            <div class="demo-access">
+                <p><strong>Демо-доступ:</strong></p>
+                <p>Логин: admin</p>
+                <p>Пароль: 12345</p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script src="diplim.js"></script>
+    <script src="diplim.js"></script>
 </body>
 </html>

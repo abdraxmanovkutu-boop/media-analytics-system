@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>О системе | Media Analytics System</title>
+    <link rel="stylesheet" href="diplim.css" />
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div>
+                <h2>MAS</h2>
+                <p class="sidebar-subtitle">Media Analytics System</p>
+            </div>
+
+            <nav>
+                <a href="dashboard.html" class="menu-item">Главная панель</a>
+                <a href="metrics.html" class="menu-item">Метрики</a>
+                <a href="charts.html" class="menu-item">Графики</a>
+                <a href="reports.html" class="menu-item">Отчёты</a>
+                <a href="about.html" class="menu-item active">О системе</a>
+                 <a href="settings.html" class="menu-item active">Настройки</a>
+            </nav>
+
+            <button class="logout-btn" onclick="logout()">Выйти</button>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <h1>О системе</h1>
+                    <p>Общая информация о проекте Media Analytics System</p>
+                </div>
+
+                <div class="user-info">
+                    <span id="currentDate"></span>
+                </div>
+            </header>
+
+            <section class="about-grid">
+                <div class="about-card">
+                    <h3>Назначение системы</h3>
+                    <p>
+                        Media Analytics System представляет собой информационную систему,
+                        предназначенную для анализа пользовательской активности на медиаплатформе.
+                    </p>
+                    <p>
+                        Основной целью системы является сбор, отображение и интерпретация
+                        ключевых показателей посещаемости, вовлечённости и поведения пользователей.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <h3>Основные задачи</h3>
+                    <ul class="features-list">
+                        <li>отображение статистики посещаемости;</li>
+                        <li>анализ популярных страниц и разделов;</li>
+                        <li>визуализация метрик и графиков;</li>
+                        <li>формирование аналитических отчётов;</li>
+                        <li>повышение наглядности данных для пользователя.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="about-wide">
+                <h3>Функциональные возможности</h3>
+                <p>
+                    Разработанная система включает несколько взаимосвязанных страниц:
+                    страницу авторизации, главную панель, модуль просмотра метрик,
+                    страницу графиков, раздел отчётов и страницу с общей информацией о системе.
+                </p>
+                <p>
+                    Пользователь получает возможность просматривать динамику посещаемости,
+                    сравнивать показатели активности, анализировать популярность контента
+                    и получать итоговую аналитическую информацию в удобной визуальной форме.
+                </p>
+            </section>
+
+            <section class="about-wide">
+                <h3>Используемые технологии</h3>
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Технология</th>
+                            <th>Назначение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HTML</td>
+                            <td>Структура веб-страниц системы</td>
+                        </tr>
+                        <tr>
+                            <td>CSS</td>
+                            <td>Оформление интерфейса и адаптация дизайна</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript</td>
+                            <td>Интерактивность и логика работы страниц</td>
+                        </tr>
+                        <tr>
+                            <td>Chart.js</td>
+                            <td>Построение графиков и диаграмм</td>
+                        </tr>
+                        <tr>
+                            <td>GitHub Pages</td>
+                            <td>Публикация проекта в интернете</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="about-wide">
+                <h3>Практическая значимость</h3>
+                <p>
+                    Система может использоваться как учебный прототип аналитической платформы,
+                    демонстрирующий принципы построения интерфейсов мониторинга
+                    пользовательской активности на медиаресурсах.
+                </p>
+                <p>
+                    Разработка подобного проекта позволяет на практике изучить методы
+                    визуализации аналитических данных, организацию структуры веб-приложения
+                    и построение понятного пользовательского интерфейса.
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <script src="diplim.js"></script>
+</body>
+</html>

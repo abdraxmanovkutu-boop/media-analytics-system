@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Отчёты | Media Analytics System</title>
+    <link rel="stylesheet" href="diplim.css" />
+
+    <style>
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .report-card,
+        .report-table-block,
+        .report-summary {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .report-card h3,
+        .report-table-block h3,
+        .report-summary h3 {
+            margin-bottom: 12px;
+            color: #1e293b;
+        }
+
+        .report-card p,
+        .report-summary p {
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .report-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .report-btn {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 18px;
+            background: #3b82f6;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .report-btn:hover {
+            background: #2563eb;
+        }
+
+        .report-btn.secondary {
+            background: #0f172a;
+        }
+
+        .report-btn.secondary:hover {
+            background: #1e293b;
+        }
+
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .report-table th,
+        .report-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+
+        .report-table th {
+            background: #f8fafc;
+            color: #334155;
+        }
+
+        .status-good {
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        .status-medium {
+            color: #d97706;
+            font-weight: 600;
+        }
+
+        .status-bad {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .wide-block {
+            margin-top: 24px;
+        }
+
+        @media (max-width: 992px) {
+            .reports-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div>
+                <h2>MAS</h2>
+                <p class="sidebar-subtitle">Media Analytics System</p>
+            </div>
+
+            <nav>
+              <a href="index.html" class="menu-item">Главная панель</a>
+                <a href="metrics.html" class="menu-item">Метрики</a>
+                <a href="charts.html" class="menu-item">Графики</a>
+                <a href="reports.html" class="menu-item active">Отчёты</a>
+                 <a href="about.html" class="menu-item active">О системе</a>
+                 <a href="settings.html" class="menu-item active">Настройки</a>
+            </nav>
+
+            <button class="logout-btn" onclick="logout()">Выйти</button>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <h1>Отчёты</h1>
+                    <p>Формирование итоговой информации по пользовательской активности</p>
+                </div>
+
+                <div class="user-info">
+                    <span id="currentDate"></span>
+                </div>
+            </header>
+
+            <section class="reports-grid">
+                <div class="report-card">
+                    <h3>Ежедневный отчёт</h3>
+                    <p><strong>Период:</strong> 15.04.2026</p>
+                    <p><strong>Посещений:</strong> 2 845</p>
+                    <p><strong>Уникальных пользователей:</strong> 1 284</p>
+                    <p><strong>Средняя глубина просмотра:</strong> 4.8 страницы</p>
+                    <p><strong>Показатель отказов:</strong> 22%</p>
+                    <p>За сутки наблюдалась стабильная активность пользователей с наибольшим интересом к разделам новостей и статей.</p>
+                </div>
+
+                <div class="report-card">
+                    <h3>Недельный отчёт</h3>
+                    <p><strong>Период:</strong> 08.04.2026 – 15.04.2026</p>
+                    <p><strong>Общее число просмотров:</strong> 16 430</p>
+                    <p><strong>Среднее время на сайте:</strong> 5 мин 12 сек</p>
+                    <p><strong>Наиболее популярный раздел:</strong> Новости</p>
+                    <p><strong>Доля постоянных пользователей:</strong> 65%</p>
+                    <p>В течение недели зафиксирован рост пользовательской активности в вечерние часы и в конце недели.</p>
+                </div>
+            </section>
+
+            <section class="report-table-block wide-block">
+                <h3>Сводная таблица ключевых показателей</h3>
+                <table class="report-table">
+                    <thead>
+                        <tr>
+                            <th>Показатель</th>
+                            <th>Значение</th>
+                            <th>Оценка</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Уникальные посетители</td>
+                            <td>1 284</td>
+                            <td class="status-good">Высокая</td>
+                        </tr>
+                        <tr>
+                            <td>Повторные посещения</td>
+                            <td>642</td>
+                            <td class="status-good">Стабильная</td>
+                        </tr>
+                        <tr>
+                            <td>Среднее время на платформе</td>
+                            <td>5 мин 12 сек</td>
+                            <td class="status-good">Хорошая</td>
+                        </tr>
+                        <tr>
+                            <td>Глубина просмотра</td>
+                            <td>4.8 страницы</td>
+                            <td class="status-good">Высокая</td>
+                        </tr>
+                        <tr>
+                            <td>Показатель отказов</td>
+                            <td>22%</td>
+                            <td class="status-medium">Средняя</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="report-summary wide-block">
+                <h3>Аналитическое заключение</h3>
+                <p>Сформированные отчёты показывают, что медиаплатформа демонстрирует устойчивую пользовательскую активность и стабильный интерес аудитории к публикуемому контенту.</p>
+                <p>Наиболее востребованными разделами остаются новостные материалы и статьи, что свидетельствует о приоритетном внимании пользователей к информационным ресурсам платформы.</p>
+                <p>Наличие повторных посещений и относительно высокой глубины просмотра подтверждает, что пользователи не ограничиваются единичным просмотром страниц, а взаимодействуют с платформой более глубоко.</p>
+                <p>На основе полученных данных можно сделать вывод о целесообразности дальнейшего развития аналитического модуля, расширения системы отчётности и внедрения дополнительных инструментов мониторинга поведения аудитории.</p>
+
+                <div class="report-actions">
+                    <button class="report-btn" onclick="downloadReport()">Скачать отчёт</button>
+                    <button class="report-btn secondary" onclick="printReport()">Печать</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function logout() {
+            window.location.href = "login.html";
+        }
+
+        function setCurrentDate() {
+            const dateElement = document.getElementById("currentDate");
+            const now = new Date();
+            dateElement.textContent = now.toLocaleDateString("ru-RU", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric"
+            });
+        }
+
+        function downloadReport() {
+            alert("Функция скачивания отчёта добавлена в демонстрационном режиме.");
+        }
+
+        function printReport() {
+            window.print();
+        }
+
+        setCurrentDate();
+    </script>
+</body>
+</html>
